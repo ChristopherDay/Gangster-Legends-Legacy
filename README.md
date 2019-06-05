@@ -4,7 +4,7 @@
 
 I will still provide security updates but i wont be updating the core code to work with PHP 7.0 etc ... 
 
-For an updated script see [https://github.com/ChristopherDay/Gangster-Legends-V2/]("Gangster Legends V2").
+For an updated script see https://github.com/ChristopherDay/Gangster-Legends-V2/:["Gangster Legends V2"].
 
 ## How to install
 
