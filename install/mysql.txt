@@ -1,0 +1,474 @@
+
+
+#
+# Tabel structuur voor tabel `bank`
+#
+
+CREATE TABLE bank (
+  id int(11) NOT NULL auto_increment,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  sendby varchar(20) NOT NULL default '',
+  sendto varchar(20) NOT NULL default '',
+  amount varchar(20) NOT NULL default '',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `banned`
+#
+
+CREATE TABLE banned (
+  id int(22) NOT NULL auto_increment,
+  `name` varchar(20) NOT NULL,
+  banner varchar(20) NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  reason text NOT NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `cars`
+#
+
+CREATE TABLE cars (
+  id int(20) NOT NULL auto_increment,
+  owner varchar(20) NOT NULL default '',
+  `type` char(2) NOT NULL default '',
+  origin char(1) NOT NULL default '',
+  location char(2) NOT NULL default '',
+  damage char(3) NOT NULL default '',
+  `value` varchar(20) NOT NULL default '0',
+  selling char(1) NOT NULL default '0',
+  sell_price varchar(20) NOT NULL default '0',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `casino_trade`
+#
+
+CREATE TABLE casino_trade (
+  id int(11) NOT NULL auto_increment,
+  `from` varchar(20) NOT NULL,
+  `to` varchar(20) NOT NULL,
+  location varchar(1) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `casino_wins`
+#
+
+CREATE TABLE casino_wins (
+  id int(11) NOT NULL auto_increment,
+  winner varchar(20) NOT NULL,
+  loser varchar(20) NOT NULL,
+  payout varchar(255) NOT NULL,
+  bet varchar(255) NOT NULL,
+  maxbet varchar(255) NOT NULL,
+  old_money varchar(255) NOT NULL,
+  location varchar(1) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `credit_transactions`
+#
+
+CREATE TABLE credit_transactions (
+  id int(22) NOT NULL auto_increment,
+  `name` varchar(20) NOT NULL,
+  receiver varchar(20) NOT NULL,
+  amount varchar(20) NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  price varchar(255) NOT NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `dice`
+#
+
+CREATE TABLE dice (
+  id int(11) NOT NULL auto_increment,
+  winner varchar(20) NOT NULL,
+  price varchar(20) NOT NULL,
+  players text NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `donations`
+#
+
+CREATE TABLE donations (
+  id int(22) NOT NULL auto_increment,
+  `name` varchar(20) NOT NULL,
+  credits varchar(20) NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `gang_aply`
+#
+
+CREATE TABLE gang_aply (
+  id int(22) NOT NULL auto_increment,
+  gang varchar(100) NOT NULL default '',
+  `name` varchar(20) NOT NULL default '',
+  rank varchar(2) default '1',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `gang_bank`
+#
+
+CREATE TABLE gang_bank (
+  id int(22) NOT NULL auto_increment,
+  gang varchar(100) NOT NULL default '',
+  `name` varchar(20) NOT NULL default '',
+  amount varchar(20) NOT NULL default '',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `gangs`
+#
+
+CREATE TABLE gangs (
+  id int(11) NOT NULL auto_increment,
+  `name` varchar(100) NOT NULL default '',
+  leader varchar(20) NOT NULL default '',
+  bank varchar(20) NOT NULL default '0',
+  quote text NOT NULL,
+  members varchar(3) NOT NULL default '1',
+  size varchar(20) NOT NULL default '10',
+  rec varchar(1) NOT NULL default '1',
+  bullets varchar(255) NOT NULL default '0',
+  picture varchar(255) NOT NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `hitlist`
+#
+
+CREATE TABLE hitlist (
+  id int(11) NOT NULL auto_increment,
+  target varchar(20) NOT NULL default '',
+  paidby varchar(100) default NULL,
+  reason text NOT NULL,
+  amount varchar(20) NOT NULL default '0',
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `type` varchar(1) NOT NULL default '1',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `kills`
+#
+
+CREATE TABLE kills (
+  id int(22) NOT NULL auto_increment,
+  target varchar(20) NOT NULL,
+  shooter varchar(20) NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  gang varchar(100) NOT NULL,
+  bullets varchar(255) NOT NULL,
+  state varchar(255) NOT NULL,
+  health varchar(255) NOT NULL,
+  rank varchar(10) NOT NULL,
+  money varchar(255) NOT NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `location`
+#
+
+CREATE TABLE location (
+  id int(11) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL default '',
+  rt varchar(20) NOT NULL default 'No Owner.',
+  rt_max varchar(20) default '100',
+  rt_profit varchar(255) default '0',
+  rl varchar(20) NOT NULL default 'No Owner.',
+  rl_max varchar(20) default '100',
+  rl_profit varchar(255) NOT NULL default '0',
+  keno varchar(20) NOT NULL default 'No Owner.',
+  keno_max varchar(20) NOT NULL default '10',
+  keno_profit varchar(20) default '0',
+  bj varchar(20) NOT NULL default 'No Owner.',
+  bj_max varchar(20) NOT NULL default '100',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `login`
+#
+
+CREATE TABLE login (
+  id int(11) NOT NULL auto_increment,
+  lastactive varchar(255) NOT NULL,
+  userip varchar(50) NOT NULL default '',
+  signup_ip varchar(255) NOT NULL,
+  login_count varchar(10) NOT NULL default '0',
+  login_ip text NOT NULL,
+  `name` varchar(50) NOT NULL default '',
+  donated char(1) NOT NULL default '1',
+  `password` varchar(50) NOT NULL default '',
+  state char(1) NOT NULL default '0',
+  sitestate char(1) NOT NULL default '0',
+  mail varchar(100) NOT NULL default '',
+  signup varchar(255) NOT NULL default '',
+  money varchar(20) NOT NULL default '1500',
+  exp varchar(20) NOT NULL default '0',
+  rank char(2) default '0',
+  health char(3) NOT NULL default '100',
+  ammo varchar(20) default '0',
+  gang varchar(100) NOT NULL default '',
+  newmail char(1) NOT NULL default '1',
+  messages varchar(9) NOT NULL default '0',
+  credits varchar(10) NOT NULL default '0',
+  bank varchar(20) NOT NULL default '0',
+  location char(2) NOT NULL default '1',
+  quote text NOT NULL,
+  side_url varchar(255) NOT NULL default '',
+  button_value varchar(5) NOT NULL,
+  button_time varchar(255) NOT NULL,
+  crimes varchar(255) NOT NULL default '0-0-0-0-0-0-0',
+  smuggle varchar(255) NOT NULL default '0-0-0-0-0-0',
+  jail varchar(255) default '0-0',
+  weapon varchar(1) NOT NULL default '0',
+  gun_skill varchar(3) NOT NULL default '100',
+  armor varchar(1) NOT NULL default '0',
+  note_pad text NOT NULL,
+  travel varchar(255) NOT NULL,
+  gta varchar(255) NOT NULL default '0-0',
+  bodyguard varchar(1) NOT NULL default '0',
+  bullet_time varchar(255) NOT NULL,
+  oc varchar(255) NOT NULL default '0-0',
+  ref varchar(20) NOT NULL,
+  friends text NOT NULL,
+  filter text NOT NULL,
+  casino varchar(1) NOT NULL default '1',
+  counter varchar(3) NOT NULL default '0',
+  war varchar(255) NOT NULL,
+  dice text NOT NULL,
+  dice_info varchar(255) NOT NULL,
+  stock varchar(255) NOT NULL default '0-0-0-0-0-0',
+  extortion_name varchar(20) NOT NULL,
+  extortion_time varchar(255) NOT NULL,
+  mute varchar(255) NOT NULL,
+  topic_time varchar(255) NOT NULL,
+  help_desk text NOT NULL,
+  blackjack varchar(255) NOT NULL,
+  body varchar(255) NOT NULL default '0-0-0',
+  chase varchar(255) NOT NULL,
+  credit_sale varchar(255) NOT NULL default '0',
+  credit_price varchar(255) NOT NULL default '0',
+  brewery_stock varchar(255) NOT NULL default '0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0 ',
+  brewery_level varchar(255) NOT NULL default '1-1-1',
+  brewery_time varchar(255) NOT NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `news`
+#
+
+CREATE TABLE news (
+  id int(11) NOT NULL auto_increment,
+  ip varchar(255) NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  message text NOT NULL,
+  `name` varchar(20) NOT NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `oc`
+#
+
+CREATE TABLE oc (
+  id int(11) NOT NULL auto_increment,
+  leader varchar(20) NOT NULL,
+  we varchar(20) NOT NULL,
+  ee varchar(20) NOT NULL,
+  driver varchar(20) NOT NULL,
+  leader_perc varchar(3) NOT NULL,
+  we_perc varchar(3) NOT NULL,
+  ee_perc varchar(3) NOT NULL,
+  driver_perc varchar(3) NOT NULL,
+  we_eq varchar(1) NOT NULL,
+  ee_eq varchar(1) NOT NULL default '0',
+  driver_eq varchar(1) NOT NULL default '0',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `oc_invites`
+#
+
+CREATE TABLE oc_invites (
+  id int(11) NOT NULL auto_increment,
+  oc_id varchar(11) NOT NULL,
+  location varchar(1) NOT NULL,
+  position varchar(50) NOT NULL,
+  leader varchar(20) NOT NULL,
+  percentage varchar(3) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `pm`
+#
+
+CREATE TABLE pm (
+  id int(11) NOT NULL auto_increment,
+  message text NOT NULL,
+  sendto varchar(20) NOT NULL default '',
+  sendby varchar(20) NOT NULL default '',
+  `time` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  rep varchar(1) NOT NULL default '1',
+  del varchar(1) NOT NULL default '1',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `replys`
+#
+
+CREATE TABLE replys (
+  id int(11) NOT NULL auto_increment,
+  naam varchar(20) NOT NULL default '',
+  bericht text NOT NULL,
+  tid int(11) NOT NULL default '0',
+  datum varchar(50) NOT NULL default '',
+  topictype char(1) NOT NULL default '1',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `shoutbox`
+#
+
+CREATE TABLE shoutbox (
+  id int(11) NOT NULL auto_increment,
+  ip varchar(255) NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  message text NOT NULL,
+  `name` varchar(20) NOT NULL,
+  gang varchar(100) NOT NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `sitestats`
+#
+
+CREATE TABLE sitestats (
+  id int(1) NOT NULL auto_increment,
+  max_online varchar(20) NOT NULL default '0',
+  admins text NOT NULL,
+  managers text NOT NULL,
+  admins_ip text NOT NULL,
+  managers_ip text NOT NULL,
+  `status` varchar(3600) NOT NULL default '------------------------------------',
+  locations text NOT NULL,
+  protection text NOT NULL,
+  protection_price text NOT NULL,
+  weapon text NOT NULL,
+  weapon_price text NOT NULL,
+  stock varchar(255) NOT NULL default '100-100-100-100-100-100',
+  lottery text NOT NULL,
+  ace_club varchar(255) NOT NULL default '50000',
+  hdo text NOT NULL,
+  ranks text NOT NULL,
+  wealth text NOT NULL,
+  cars text NOT NULL,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `swiss_bank`
+#
+
+CREATE TABLE swiss_bank (
+  id int(11) NOT NULL auto_increment,
+  pin varchar(255) default NULL,
+  account varchar(255) default NULL,
+  amount varchar(20) NOT NULL default '0',
+  createdby varchar(20) NOT NULL default '',
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+# --------------------------------------------------------
+
+#
+# Tabel structuur voor tabel `topics`
+#
+
+CREATE TABLE topics (
+  id int(11) NOT NULL auto_increment,
+  titel varchar(50) NOT NULL default '',
+  bericht text NOT NULL,
+  naam varchar(20) NOT NULL default '',
+  datum varchar(50) NOT NULL default '',
+  topicstate char(1) NOT NULL default '0',
+  locked char(1) NOT NULL default '1',
+  `type` varchar(1) NOT NULL default '1',
+  PRIMARY KEY  (id)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+    
+
+--
+-- Table structure for table `detective`
+--
+
+CREATE TABLE IF NOT EXISTS `detective` (
+  `IDDetective` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `IDUser` bigint(20) NOT NULL DEFAULT '0',
+  `user` varchar(10) NOT NULL DEFAULT '',
+  `hours` varchar(10) NOT NULL DEFAULT '',
+  `start_time` varchar(10) DEFAULT NULL,
+  `showResult` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detective`
+--
+
+ALTER TABLE `kills` ADD `reason` TEXT NOT NULL ;
+ALTER TABLE `login` ADD `char` INT( 2 ) NOT NULL ;
