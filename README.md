@@ -4,7 +4,13 @@
 
 I will still provide security updates but i wont be updating the core code to work with PHP 7.0 etc ... 
 
-For an updated script see https://github.com/ChristopherDay/Gangster-Legends-V2/.
+For an updated script see [https://github.com/ChristopherDay/Gangster-Legends-V2/](Gangster Legends V2).
+
+## How to install
+
+Jamiee @ [https://makewebgames.io](Make Web Games) made a youtube video on how to install GL on xampp, you can view this [https://www.youtube.com/watch?v=Etl8uh0_Jy0](here).
+
+I dont have time to write text instructions for a project that is over 8 years old now.
 
 ## Features
 
